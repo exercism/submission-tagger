@@ -1,4 +1,4 @@
-#! /bin/bash -e
+#!/usr/bin/env bash
 
 # Synopsis:
 # Test the submission tagger Docker image by running it against a predefined set of 

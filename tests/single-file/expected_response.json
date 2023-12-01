@@ -5,5 +5,5 @@
     "Content-Type": "application/json"
   },
   "isBase64Encoded": false,
-  "body": "{\"tags\":{\"code\":27,\"blanks\":3,\"comments\":0},\"files\":[\"Bob.cs\"]}"
+  "body": "[]"
 }

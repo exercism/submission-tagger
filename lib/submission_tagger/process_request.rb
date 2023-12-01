@@ -27,7 +27,9 @@ class ProcessRequest
     Submission.new(body[:submission_uuid], body[:submission_filepaths])
   end
 
-  def write_output_to_file = File.write(output_filepath, response.to_json)
+  def write_output_to_file
+    File.write(output_filepath, response.to_json)
+  end
 
   def output_filepath
     return if body[:output_dir].nil?
@@ -36,5 +38,7 @@ class ProcessRequest
   end
 
   memoize
-  def body = JSON.parse(event["body"], symbolize_names: true)
+  def body
+    JSON.parse(event["body"], symbolize_names: true)
+  end
 end

@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 # Synopsis:
 # Test the submission tagger by running it against a predefined set of solutions 
@@ -22,12 +22,13 @@
 
 shopt -s extglob
 
-exercise_slug="${2:-*}"
+exercise_slug="${1:-*}"
 
 exit_code=0
 
 # Iterate over all test directories
 for test_dir in tests/${exercise_slug}; do
+
     test_name=$(basename "${test_dir}")
     test_dir_path=$(realpath "${test_dir}")
     response_file_path="${test_dir_path}/response.json"
@@ -35,7 +36,7 @@ for test_dir in tests/${exercise_slug}; do
 
     rm -rf "${response_file_path}"
 
-    bin/run.sh "${track_name}" "${test_dir_path}" "${test_dir_path}"
+    bin/run.sh "${test_dir_path}" "${test_dir_path}"
 
     # Ensure there is a trailing newline in both files
     sed -i -e '$a\' "${response_file_path}"
